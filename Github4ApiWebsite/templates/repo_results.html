@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    <title>
+        User Repository Data
+    </title>
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <button class="btn btn-primary position-relative">
+            Data Section 1
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              10+
+            </span>
+        </button>
+        <ol class="list-group list-group-numbered mt-2">
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+            <div class="fw-bold" style="font-family: Lalezar;">Repository Name</div>
+            Repository's Name
+            </div>
+            <span class="badge bg-primary rounded-pill fs-6 mt-2 pb-2">{{ request.session.repoName }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+            <div class="fw-bold" style="font-family: Lalezar;">Total Stars</div>
+            Total Stars of Repository
+            </div>
+            <span class="badge bg-primary rounded-pill fs-6 mt-2 pb-2">{{ request.session.repoStars }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+            <div class="fw-bold" style="font-family: Lalezar;">Public Archive</div>
+            Check if Repository is Public Archive
+            </div>
+            <span class="badge bg-primary rounded-pill fs-6 mt-2 pb-2">{{ request.session.repoPubArch }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+            <div class="fw-bold" style="font-family: Lalezar;">Count of Branches</div>
+            Count of Repository Branches
+            </div>
+            <span class="badge bg-primary rounded-pill fs-6 mt-2 pb-2">{{ request.session.repoBranchesCount }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+            <div class="fw-bold" style="font-family: Lalezar;">Has License</div>
+            Check if Repository has License
+            </div>
+            <span class="badge bg-primary rounded-pill fs-6 mt-2 pb-2">{{ request.session.repoHasLi }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+          <div class="fw-bold" style="font-family: Lalezar;">License Type</div>
+          Repository License Type
+          </div>
+          <span class="badge bg-primary rounded-pill fs-6 mt-2 pb-2">{{ request.session.repoLiType }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+          <div class="fw-bold" style="font-family: Lalezar;">Last Commit Date</div>
+          Repository Last Commit Date
+          </div>
+          <span class="badge bg-primary rounded-pill fs-6 mt-2 pb-2">{{ request.session.lstCmtDate }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+            <div class="fw-bold" style="font-family: Lalezar;">Description</div>
+            {{ request.session.repoDesc }}
+            </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold" style="font-family: Lalezar;">Branches</div>
+              Name of all User's Repository Branches
+            </div>
+            <div class="dropdown" data-bs-theme="dark">
+              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Branches
+              </a>
+              <ul class="dropdown-menu">
+                {% for branch in request.session.repoBranches %}
+                  <li><a class="dropdown-item">{{ branch }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold" style="font-family: Lalezar;">Used Languages</div>
+              Name of all User's Used Languages
+            </div>
+            <div class="dropdown" data-bs-theme="dark">
+              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Used Languages
+              </a>
+              <ul class="dropdown-menu">
+                {% for lang in request.session.repoUsdLangs %}
+                  <li><a class="dropdown-item">{{ lang }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold" style="font-family: Lalezar;">Repository Watchers</div>
+              Name of all Repository Watchers
+            </div>
+            <div class="dropdown" data-bs-theme="dark">
+              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Watchers
+              </a>
+              <ul class="dropdown-menu">
+                {% for repo_watcher in request.session.loRepoWathcers %}
+                  <li><a class="dropdown-item">{{ repo_watcher }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+        </li>
+    </div>
+{% endblock %}

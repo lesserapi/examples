@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    <title>
+        User Data
+    </title>
+{% endblock %}
+{% block body %}
+    <div class="container">
+      <button class="btn btn-primary position-relative">
+        Data Section 1
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          10+
+          <span class="visually-hidden">Unread</span>
+        </span>
+      </button>
+      <ol class="list-group list-group-numbered mt-2">
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold" style="font-family: Lalezar;">Full Name</div>
+            Full name of User
+          </div>
+          <span class="badge bg-primary rounded-pill fs-6 mt-2 pb-2">{{ request.session.fullname }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold" style="font-family: Lalezar;">Followers</div>
+            Count of Followers
+          </div>
+          <span class="badge bg-primary rounded-pill fs-6 mt-2 pb-2">{{ request.session.followers }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold" style="font-family: Lalezar;">Followings</div>
+            Count of Followings
+          </div>
+          <span class="badge bg-primary rounded-pill fs-6 mt-2 pb-2">{{ request.session.followings }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold" style="font-family: Lalezar;">Total Repositories</div>
+              Count of all User's Repositories
+            </div>
+            <span class="badge bg-primary rounded-pill fs-6 mt-2 pb-2">{{ request.session.totalRepos }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold" style="font-family: Lalezar;">Total Stars Given</div>
+              Count of all User's Total Stars Given
+            </div>
+            <span class="badge bg-primary rounded-pill fs-6 mt-2 pb-2">{{ request.session.totalSG }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold" style="font-family: Lalezar;">Last Year Contributions</div>
+              Count of User's Last Year Contributions
+            </div>
+            <span class="badge bg-primary rounded-pill fs-6 mt-2 pb-2">{{ request.session.lyc }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold" style="font-family: Lalezar;">Location</div>
+              Location of User
+            </div>
+            <span class="badge bg-primary rounded-pill fs-6 mt-2 pb-2">{{ request.session.location }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold" style="font-family: Lalezar;">Website</div>
+              User's Website
+            </div>
+            <span class="badge bg-primary rounded-pill fs-6 mt-2 pb-2">{{ request.session.website }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold" style="font-family: Lalezar;">User Has Readme</div>
+            Check if User has a README.md file
+          </div>
+          <span class="badge bg-primary rounded-pill fs-6 mt-2 pb-2">{{ request.session.userHasReadme }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold" style="font-family: Lalezar;">Biography</div>
+            {{ request.session.biography }}
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold" style="font-family: Lalezar;">Profile Picture URL</div>
+              {{ request.session.ppURL }}
+            </div>
+        </li>
+        </ol>
+    </div>
+    <div class="container mt-4">
+      <button class="btn btn-primary position-relative">
+        Data Section 2
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          3+
+        </span>
+      </button>
+      <ol class="list-group list-group-numbered mt-2">
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold" style="font-family: Lalezar;">Repositories</div>
+            Name of all User's Repositories
+          </div>
+          <div class="dropdown" data-bs-theme="dark">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              List of Repositories
+            </a>
+            <ul class="dropdown-menu">
+              {% for repo_name in request.session.repoNames %}
+                <li><a class="dropdown-item">{{ repo_name }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold" style="font-family: Lalezar;">Achievements</div>
+            Name of all User's Achievements
+          </div>
+          <div class="dropdown" data-bs-theme="dark">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              List of Achievements
+            </a>
+            <ul class="dropdown-menu">
+              {% for achv_name in request.session.userAchvs %}
+                <li><a class="dropdown-item">{{ achv_name }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold" style="font-family: Lalezar;">Followings</div>
+            Name of all User's Followings
+          </div>
+          <div class="dropdown" data-bs-theme="dark">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              List of Followings
+            </a>
+            <ul class="dropdown-menu">
+              {% for lofing in request.session.loFollowings %}
+                <li><a class="dropdown-item">{{ lofing }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold" style="font-family: Lalezar;">Followers</div>
+            Name of all User's Followers
+          </div>
+          <div class="dropdown" data-bs-theme="dark">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              List of Followers
+            </a>
+            <ul class="dropdown-menu">
+              {% for lofwer in request.session.loFollowers %}
+                <li><a class="dropdown-item">{{ lofwer }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </li>
+        </ol>
+    </div>
+{% endblock %}

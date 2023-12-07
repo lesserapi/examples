@@ -1,0 +1,48 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<style type="text/css">
+  @font-face {
+    font-family: Lalezar;
+    src: url("{% static 'fonts/Lalezar-Regular.ttf' %}");
+  }
+
+  @font-face {
+    font-family: Rubik;
+    src: url("{% static 'fonts/Rubik-Light.ttf' %}");
+  }
+
+  ::-webkit-input-placeholder {
+    font-size: 16px !important;
+  }
+
+  :-moz-placeholder {
+    font-size: 16px !important;
+  }
+</style>
+<nav class="navbar navbar-expand-lg mb-5 bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white fs-3" style="font-family: Lalezar;" href="{% url 'index' %}">Github4Api</a>
+      <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" style="font-family: Rubik;" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active text-info text-decoration-none fs-6" aria-current="page" href="{% url 'index' %}">User Information Search</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active text-info text-decoration-none fs-6" aria-current="page" href="{% url 'repo_info' %}">Repo Information Search</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active text-info text-decoration-none fs-6" aria-current="page" href="https://github.com/shervinbdndev/github4apiwebsite/">Website Source</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active text-info text-decoration-none fs-6" aria-current="page" href="https://github.com/shervinbdndev/github4api/">Package Source</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active text-info text-decoration-none fs-6" aria-current="page" href="https://shervinbdndev.vercel.app/#/">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>

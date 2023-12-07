@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    <title>
+        Github4Api
+    </title>
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="container-md">
+            <p class="fs-1 text-white" style="font-family: Lalezar;">Feeling Depressed?</p>
+            <p class="fs-5 fw-italic text-info" style="font-family: Rubik;">Feel Free to get some Information about a Repository of some User on Github.</p>
+            <form class="mb-3" action="{% url 'repo_info' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="input-group input-group-lg mt-3">
+                    <span class="input-group-text" id="basic-addon1">
+                      <svg class="mb-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                      </svg>
+                    </span>
+                    <input type="text" class="form-control fw-italic" style="font-family: Lalezar;" placeholder="Someone's Username on Github" aria-label="input-data" aria-describedby="basic-addon1" name="username">
+                </div>
+                <div class="input-group input-group-lg mt-3">
+                    <span class="input-group-text" id="basic-addon1">
+                      <svg class="mb-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-box-fill" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M15.528 2.973a.75.75 0 0 1 .472.696v8.662a.75.75 0 0 1-.472.696l-7.25 2.9a.75.75 0 0 1-.557 0l-7.25-2.9A.75.75 0 0 1 0 12.331V3.669a.75.75 0 0 1 .471-.696L7.443.184l.004-.001.274-.11a.75.75 0 0 1 .558 0l.274.11.004.001 6.971 2.789Zm-1.374.527L8 5.962 1.846 3.5 1 3.839v.4l6.5 2.6v7.922l.5.2.5-.2V6.84l6.5-2.6v-.4l-.846-.339Z"/>
+                      </svg>
+                    </span>
+                    <input type="text" class="form-control fw-italic" style="font-family: Lalezar;" placeholder="Someone's Repository on Github" aria-label="input-data" aria-describedby="basic-addon1" name="reponame">
+                </div>
+                <div class="input-group input-group-lg mt-3">
+                    <span class="input-group-text" id="basic-addon1">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-usb-symbol" viewBox="0 0 16 16">
+                        <path d="m7.792.312-1.533 2.3A.25.25 0 0 0 6.467 3H7.5v7.319a2.5 2.5 0 0 0-.515-.298L5.909 9.56A1.5 1.5 0 0 1 5 8.18v-.266a1.5 1.5 0 1 0-1 0v.266a2.5 2.5 0 0 0 1.515 2.298l1.076.461a1.5 1.5 0 0 1 .888 1.129 2.001 2.001 0 1 0 1.021-.006v-.902a1.5 1.5 0 0 1 .756-1.303l1.484-.848A2.5 2.5 0 0 0 11.995 7h.755a.25.25 0 0 0 .25-.25v-2.5a.25.25 0 0 0-.25-.25h-2.5a.25.25 0 0 0-.25.25v2.5c0 .138.112.25.25.25h.741a1.5 1.5 0 0 1-.747 1.142L8.76 8.99a2.584 2.584 0 0 0-.26.17V3h1.033a.25.25 0 0 0 .208-.389L8.208.312a.25.25 0 0 0-.416 0Z"/>
+                      </svg>
+                    </span>
+                    <input type="text" class="form-control fw-italic" style="font-family: Lalezar;" placeholder="Branch Name on Github" aria-label="input-data" aria-describedby="basic-addon1" name="branchname">
+                    <button class="btn btn-outline-info fw-italic" type="submit" style="font-family: Lalezar;">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
