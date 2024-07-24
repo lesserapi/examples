@@ -9,7 +9,7 @@
 <img src="https://github.com/lesserapi/examples/blob/master/Github4ApiWebsite/gifs/repo_info.gif"></img>
 <br>
 <h2 align='center'><b>With Full Responsiveness</b></h2>
-<img src="https://github.com/lesserapi/Github4ApiWebsite/blob/master/gifs/responsievness.gif"></img>
+<img src="https://github.com/lesserapi/examples/blob/master/Github4ApiWebsite/gifs/responsievness.gif"></img>
 </div>
 
 <br>
